@@ -11,9 +11,9 @@ public class SpaceShip
   
   public SpaceShip()
   {
-    bg = loadImage("BAOyZX.png");
-    this.w = 200;
-    this.h = 200;
+    bg = loadImage("playerShip1_red.png");
+    this.w = 150;
+    this.h = 150;
     this.x = (displayWidth / 2) - (this.w / 2);
     this.y = displayHeight - 200;
     bullet = new Bullet(this.x, this.y, this.w, this.h);
