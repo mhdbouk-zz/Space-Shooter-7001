@@ -28,8 +28,6 @@ void setup() {
     enemies.add(new Enemy(enemyX, enemyY, 150, i, imageName));
   }
   
-  print(enemies);
-  
    for (byte num=numSTARS-1; num>-1; num--) {
         stars[num][xPOS] = (int) random(gw);
         stars[num][yPOS] = (int) random(gh);
