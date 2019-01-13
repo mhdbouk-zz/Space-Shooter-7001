@@ -29,10 +29,10 @@ public class Bullet
       InitBulletLocation(spaceX, spaceY, spaceW, spaceH);
     }
   }
-  
+
   private void InitBulletLocation(float spaceX, float spaceY, float spaceW, float spaceH)
   {
     this.y = spaceY - this.h;
-    this.x = spaceX + (spaceW / 2) - 9; 
+    this.x = spaceX + (spaceW / 2) - 9;
   }
 }

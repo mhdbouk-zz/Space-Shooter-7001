@@ -9,7 +9,7 @@ public class Enemy
   private float scale = 0.3;
   private float spacing;
   private float offset;
-  
+
   public Enemy(float startX, float startY, float spacing, float offset, int imageName)
   {
     bg = loadImage("enemy-" + imageName + ".png");
@@ -20,24 +20,24 @@ public class Enemy
     this.x = startX;
     this.y = startY;
   }
-  
+
   public void Show()
   {
     image(bg, this.x, this.y, this.w, this.h);
   }
-  
+
   public void Move()
   {
     this.y += moveSpeed;
   } 
-  
+
   public void RestartEnemy() {
     float enemyX = random(50, width - 50);
-    
+
     this.x = enemyX;
     this.y = -10;
   }
-  
+
   public float GetEnemyY() {
     return this.y;
   }
