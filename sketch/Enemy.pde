@@ -5,16 +5,20 @@ public class Enemy
   private float x;
   private float y;
   private PImage bg;
-  private float moveSpeed = 1;
+  private float moveSpeed = 15;
   private float scale = 0.3;
+  private float spacing;
+  private float offset;
   
-  public Enemy(float startX, float spacing, float offset)
+  public Enemy(float startX, float startY, float spacing, float offset, int imageName)
   {
-    bg = loadImage("Enemy.png");
-    this.w = 70;
-    this.h = 70;
-    this.x = startX + (spacing - (this.w / 2)) * offset;
-    this.y = - this.h;
+    bg = loadImage("enemy-" + imageName + ".png");
+    this.spacing = spacing;
+    this.offset = offset;
+    this.w = bg.width;
+    this.h = bg.height;
+    this.x = startX;
+    this.y = startY;
   }
   
   public void Show()
@@ -26,4 +30,15 @@ public class Enemy
   {
     this.y += moveSpeed;
   } 
+  
+  public void RestartEnemy() {
+    float enemyX = random(50, width - 50);
+    
+    this.x = enemyX;
+    this.y = -10;
+  }
+  
+  public float GetEnemyY() {
+    return this.y;
+  }
 }

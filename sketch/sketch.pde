@@ -20,12 +20,12 @@ void setup() {
   logo = loadImage("logo.png");
   gw = displayWidth;
   gh = displayHeight;
-  size(1366, 768);
   
-  float waveStartCoord = random(displayWidth/2);
-  
-  for (int i = 0; i < 4; i++){
-    enemies.add(new Enemy(waveStartCoord, 150, i));
+  for (int i = 0; i < 8; i++){
+    float enemyX = random(50, width - 50);
+    float enemyY = -random(50, height - 50);
+    int imageName = int(random(1,  6));
+    enemies.add(new Enemy(enemyX, enemyY, 150, i, imageName));
   }
   
   print(enemies);
@@ -59,13 +59,18 @@ void draw() {
     s.Show();
     if (mousePressed)
     {
-    s.Move(); 
+      s.Move(); 
     }
+    for (int i = 0; i < enemies.size(); i++) {
+      Enemy e = enemies.get(i);
+      e.Show();
+      e.Move();
+      float enemyY = e.GetEnemyY();
+      if (enemyY >= displayHeight + 120) {
+        e.RestartEnemy();
+      }
+    }
+    
   }
   
-  for (int i = 0; i < enemies.size(); i++) {
-    Enemy e = enemies.get(i);
-    e.Show();
-    e.Move();
-  }
 }
