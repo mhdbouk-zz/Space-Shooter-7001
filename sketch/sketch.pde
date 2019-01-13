@@ -12,12 +12,24 @@ private static final byte starSIZE = 4;
 private int gw = 1000, gh = 800;
 private static final color bgCOLOR = 0;
 
+private static final ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+
 int stage = 0;
 
 void setup() {
   logo = loadImage("logo.png");
   gw = displayWidth;
   gh = displayHeight;
+  size(1366, 768);
+  
+  float waveStartCoord = random(displayWidth/2);
+  
+  for (int i = 0; i < 4; i++){
+    enemies.add(new Enemy(waveStartCoord, 150, i));
+  }
+  
+  print(enemies);
+  
    for (byte num=numSTARS-1; num>-1; num--) {
         stars[num][xPOS] = (int) random(gw);
         stars[num][yPOS] = (int) random(gh);
@@ -49,5 +61,11 @@ void draw() {
     {
     s.Move(); 
     }
+  }
+  
+  for (int i = 0; i < enemies.size(); i++) {
+    Enemy e = enemies.get(i);
+    e.Show();
+    e.Move();
   }
 }
